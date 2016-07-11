@@ -10,8 +10,7 @@
   },
   "author": "Auth0 <support@auth0.com> (http://auth0.com)",
   "scripts": {
-    "start": "serve --port ${PORT:-3000} ./build",
-    "postinstall": "gulp build"
+    "start": "serve --port ${PORT:-3000} ./build"
   },
   "dependencies": {
     "gulp": "^3.9.1",
