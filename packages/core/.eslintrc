@@ -2,7 +2,7 @@
   "extends": "auth0-base/prettier",
   "rules": {
     "import/no-extraneous-dependencies": ["error", {
-       "devDependencies": ["gulpfile.js"]
+       "devDependencies": ["gulpfile.js", "tools/**/*.js"]
      }]
   }
 }

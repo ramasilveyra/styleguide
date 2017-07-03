@@ -9,7 +9,20 @@ Includes the common styles for every Auth0 applications like variables, mixins, 
 Using our CDN is the prefered solution. Just add the following line in your project's HTML head and you are done.
 
 ```html
-<link rel="stylesheet" href="https://cdn.auth0.com/styleguide/core/2.0.5/core.min.css" />
+<link rel="preload" href="https://cdn.auth0.com/styleguide/core/3.0.0/fonts/fakt/faktpro-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="https://cdn.auth0.com/styleguide/core/3.0.0/core.min.css" />
+<script>
+(function () {
+  if (sessionStorage.a0scFontsLoaded || typeof Promise === 'undefined') {
+    document.documentElement.classList.add('a0sc-fonts--loaded');
+  } else {
+    var script = document.createElement('script');
+    script.src = 'https://cdn.auth0.com/styleguide/core/3.0.0/core.min.js';
+    script.async = true;
+    document.head.appendChild(script);
+  }
+})();
+</script>
 ```
 
 ### NPM

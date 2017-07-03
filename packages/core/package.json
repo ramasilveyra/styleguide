@@ -1,13 +1,15 @@
 {
   "name": "@auth0/styleguide-core",
-  "version": "2.0.6",
+  "version": "3.0.0",
   "description": "Includes stylus variables, mixins and class utilities common to all Auth0 projects.",
-  "main": "build/core.css",
+  "main": "build/index.js",
   "style": "build/core.css",
   "scripts": {
     "prepublish": "NODE_ENV=production npm run build",
     "start": "gulp",
-    "build": "gulp build",
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "gulp build",
+    "build:js": "rollup -c tools/rollup/rollup.config.js && rollup -c tools/rollup/rollup.config.js --environment CDN",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint .",
     "lint:css": "stylelint build/core.css",
@@ -28,9 +30,11 @@
     "src"
   ],
   "dependencies": {
+    "fontfaceobserver": "^2.0.13",
     "normalize-css": "^2.3.1"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.5.2",
     "bump-version": "^0.5.0",
     "component-cdn-uploader": "auth0/component-cdn-uploader#v1.3.0",
     "eslint": "^3.19.0",
@@ -42,6 +46,11 @@
     "gulp-load-plugins": "^1.3.0",
     "gulp-rename": "^1.2.2",
     "gulp-stylus": "^2.5.0",
+    "rollup": "^0.43.0",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
     "stylelint": "^7.5.0",
     "stylelint-config-standard": "^15.0.1"
   },
